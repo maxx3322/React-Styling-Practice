@@ -3,33 +3,28 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const date = new Date();
-const hours = date.getHours();
+const hour = date.getHours();
+const textColor = { color: "" };
 let greeting;
 
-const customStyle = {
-  color: ""
-};
-
-if (hours < 12) {
-  greeting = "good morning";
-  customStyle.color = "red";
-} else if (hours < 18) {
-  greeting = "Good afternoon";
-  customStyle.color = "green";
+if (hour < 12) {
+  greeting = "Good Morning";
+  textColor.color = "red";
+} else if (hour < 18) {
+  greeting = "Good Afternoon";
+  textColor.color = "blue";
 } else {
-  greeting = "goodnight";
-  customStyle.color = "blue";
+  greeting = "Goodnight";
+  textColor.color = "green";
 }
 
 ReactDOM.render(
-  <div>
-    <h1 className="heading" style={customStyle}>
-      {greeting}{" "}
-    </h1>
-  </div>,
+  <h1 className="heading" style={textColor}>
+    {" "}
+    {greeting}{" "}
+  </h1>,
   document.getElementById("root")
 );
-
 //Show a single h1 that says "Good morning" if between midnight and 12PM.
 //or "Good Afternoon" if between 12PM and 6PM.
 //or "Good evening" if between 6PM and midnight.
